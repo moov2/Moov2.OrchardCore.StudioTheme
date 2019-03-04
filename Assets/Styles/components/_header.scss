@@ -1,0 +1,23 @@
+/* ==========================================================================
+   #HEADER
+   ========================================================================== */
+
+/**
+ * Header containing a logo & navigation.
+ */
+
+.header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    @include rem(padding-bottom, $spacing-default);
+    @include rem(padding-left, $spacing-large);
+    @include rem(padding-right, $spacing-large);
+    @include rem(padding-top, $spacing-default);
+    position: relative;
+    width: 100%;
+
+    @include themify($themes) {
+        background-color: themed('header.backgroundColor');  
+    }
+}

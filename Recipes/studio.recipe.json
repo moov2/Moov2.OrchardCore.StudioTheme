@@ -1,0 +1,282 @@
+{
+  "name": "Studio",
+  "displayName": "Studio",
+  "description": "Sets up content for studio website.",
+  "author": "Moov2 Ltd.",
+  "website": "https://moov2.com",
+  "version": "0.1.0",
+  "issetuprecipe": true,
+  "categories": ["default"],
+  "tags": ["games"],
+  "variables": {
+    "homepageContentItemId": "[js:uuid()]",
+    "now": "[js: new Date().toISOString()]"
+  },
+  "steps": [
+    {
+      "name": "Feature",
+      "enable": [
+        "Example.OrchardCore.Site",
+        "OrchardCore.Liquid",
+        "OrchardCore.Settings",
+        "OrchardCore.Contents",
+        "OrchardCore.Title",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.Widgets",
+        "OrchardCore.Flows",
+        "OrchardCore.Html",
+        "Moov2.OrchardCore.Widgets",
+        "OrchardCore.Admin",
+        "OrchardCore.Alias",
+        "OrchardCore.Autoroute",
+        "OrchardCore.ContentFields",
+        "OrchardCore.ContentPreview",
+        "OrchardCore.Contents.FileContentDefinition",
+        "OrchardCore.CustomSettings",
+        "OrchardCore.Deployment",
+        "OrchardCore.Deployment.Remote",
+        "OrchardCore.Diagnostics",
+        "OrchardCore.DynamicCache",
+        "OrchardCore.Resources",
+        "OrchardCore.Features",
+        "OrchardCore.Feeds",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Indexing",
+        "OrchardCore.Scripting",
+        "OrchardCore.Layers",
+        "OrchardCore.Lists",
+        "OrchardCore.Lucene",
+        "OrchardCore.Markdown",
+        "OrchardCore.Media",
+        "OrchardCore.Menu",
+        "OrchardCore.Navigation",
+        "OrchardCore.Queries",
+        "OrchardCore.Users",
+        "OrchardCore.Recipes",
+        "OrchardCore.Roles",
+        "OrchardCore.Templates",
+        "OrchardCore.Themes",
+        "Moov2.OrchardCore.StudioTheme",
+        "TheAdmin"
+      ],
+      "disable": [
+        "Moov2.OrchardCore.SEO.HostnameRedirects",
+        "Moov2.OrchardCore.SEO.Redirects",
+        "Moov2.OrchardCore.SEO.RobotsTxt",
+        "OrchardCore.AdminMenu",
+        "OrchardCore.Apis.GraphQL",
+        "OrchardCore.BackgroundTasks",
+        "OrchardCore.DataProtection.Azure",
+        "OrchardCore.Email",
+        "OrchardCore.Facebook",
+        "OrchardCore.Facebook.Login",
+        "OrchardCore.Forms",
+        "OrchardCore.Google.Analytics",
+        "OrchardCore.Google.GoogleAuthentication",
+        "OrchardCore.Https",
+        "OrchardCore.Localization",
+        "OrchardCore.Lucene.ContentPicker",
+        "OrchardCore.Lucene.Worker",
+        "OrchardCore.Media.Azure.Storage",
+        "OrchardCore.Microsoft.Authentication.AzureAD",
+        "OrchardCore.Microsoft.Authentication.MicrosoftAccount",
+        "OrchardCore.MiniProfiler",
+        "OrchardCore.OpenId",
+        "OrchardCore.OpenId.Client",
+        "OrchardCore.OpenId.Management",
+        "OrchardCore.OpenId.EntityFrameworkCore",
+        "OrchardCore.OpenId.Server",
+        "OrchardCore.OpenId.Validation",
+        "OrchardCore.Queries.Sql",
+        "OrchardCore.ReCaptcha",
+        "OrchardCore.ReCaptcha.Users",
+        "OrchardCore.XmlRpc",
+        "OrchardCore.RemotePublishing",
+        "OrchardCore.ResponseCache",
+        "OrchardCore.ResponseCompression",
+        "OrchardCore.ReverseProxy",
+        "OrchardCore.Setup",
+        "OrchardCore.Taxonomies",
+        "OrchardCore.Tenants",
+        "OrchardCore.Tenants.FileProvider",
+        "OrchardCore.Twitter.TwitterSignin",
+        "OrchardCore.Users.Registration",
+        "OrchardCore.Users.ResetPassword",
+        "OrchardCore.Users.TimeZone",
+        "OrchardCore.Workflows",
+        "OrchardCore.Workflows.Http",
+        "OrchardCore.Workflows.Timers",
+        "SafeMode",
+        "TheAgencyTheme",
+        "TheBlogTheme",
+        "TheComingSoonTheme",
+        "TheTheme"
+      ]
+    },
+    {
+      "name": "ContentDefinition",
+      "ContentTypes": [
+        {
+          "Name": "Page",
+          "DisplayName": "Page",
+          "Settings": {
+            "Creatable": "True",
+            "Draftable": "True",
+            "Versionable": "True",
+            "Listable": "True",
+            "Securable": "True",
+            "Stereotype": null
+          },
+          "ContentTypePartDefinitionRecords": [
+            {
+              "PartName": "Page",
+              "Name": "Page",
+              "Settings": {
+                "Position": "2"
+              }
+            },
+            {
+              "PartName": "AutoroutePart",
+              "Name": "AutoroutePart",
+              "Settings": {
+                "Position": "1",
+                "DisplayName": null,
+                "Description": null,
+                "Editor": null,
+                "Pattern": "{{ ContentItem | display_text | slugify }}",
+                "AllowCustomPath": "True",
+                "AllowUpdatePath": "False",
+                "ShowHomepageOption": "True",
+                "ContentIndexSettings": {}
+              }
+            },
+            {
+              "PartName": "TitlePart",
+              "Name": "TitlePart",
+              "Settings": {
+                "Position": "0"
+              }
+            },
+            {
+              "PartName": "FlowPart",
+              "Name": "Content",
+              "Settings": {
+                "DisplayName": "Content",
+                "Description": "Content for the page",
+                "Position": "3"
+              }
+            }
+          ]
+        }
+      ],
+      "ContentParts": [
+        {
+          "Name": "FlowPart",
+          "Settings": {
+            "Attachable": "True",
+            "Description": "Provides a customizable body for your content item.",
+            "Reusable": "True",
+            "DisplayName": null
+          },
+          "ContentPartFieldDefinitionRecords": []
+        }
+      ]
+    },
+    {
+      "name": "Content",
+      "data": [
+        {
+          "ContentItemId": "429zgaznn1xayx1wa188q8ytcy",
+          "ContentItemVersionId": "42gy875d452gd5f2beesqg5acg",
+          "ContentType": "Page",
+          "DisplayText": "Homepage",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "[js: variables('now')]",
+          "PublishedUtc": "[js: variables('now')]",
+          "CreatedUtc": "[js: variables('now')]",
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "Page": {},
+          "AutoroutePart": {
+            "Path": "homepage",
+            "SetHomepage": true
+          },
+          "FlowPart": {
+            "Widgets": []
+          },
+          "TitlePart": {
+            "Title": "Homepage"
+          },
+          "Content": {
+            "Widgets": []
+          }
+        },
+        {
+          "ContentItemId": "4nhqnz5d4r59c1fpzdrhh5nqd5",
+          "ContentItemVersionId": "4sz9jh6zae10d0wa6pfqyv5kx0",
+          "ContentType": "Html",
+          "DisplayText": "Site Logo",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "[js: variables('now')]",
+          "PublishedUtc": "[js: variables('now')]",
+          "CreatedUtc": "[js: variables('now')]",
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "HtmlBodyPart": {
+            "Html": "<a href=\"/\">\r\n<img src=\"/Moov2.OrchardCore.StudioTheme/content/logo.svg\" alt=\"Logo for Studio\" />\r\n</a>"
+          },
+          "LayerMetadata": {
+            "Position": 1.0,
+            "Zone": "Logo",
+            "Layer": "Default"
+          }
+        },
+        {
+          "ContentItemId": "47rpktp724rtwy0gx7aye3t9nj",
+          "ContentItemVersionId": "4jg0jm76eaq9n0n6d6ntwek4xs",
+          "ContentType": "Html",
+          "DisplayText": "Main Menu",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "[js: variables('now')]",
+          "PublishedUtc": "[js: variables('now')]",
+          "CreatedUtc": "[js: variables('now')]",
+          "Owner": "[js: parameters('AdminUsername')]",
+          "Author": "[js: parameters('AdminUsername')]",
+          "HtmlBodyPart": {
+            "Html": "<ul class=\"menu\">\r\n    <li class=\"menu__item\">\r\n        <a href=\"/\">Games</a>\r\n    </li>\r\n    <li class=\"menu__item\">\r\n        <a href=\"/\">About</a>\r\n    </li>\r\n    <li class=\"menu__item\">\r\n        <a href=\"/\">Careers</a>\r\n    </li>\r\n    <li class=\"menu__item\">\r\n        <a href=\"/\">News</a>\r\n    </li>\r\n    <li class=\"menu__item menu__item--social\">\r\n        <a href=\"/\" class=\"icon icon--facebook\" title=\"Link to Facebook page\">\r\n            <svg width=\"9\" height=\"18\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M5.85 18V9.792h2.665l.381-3.204H5.85V4.536c0-.936.242-1.548 1.523-1.548H9V.144A20.979 20.979 0 0 0 6.612 0C4.258 0 2.665 1.476 2.665 4.212v2.376H0v3.204h2.665V18H5.85z\"/></svg>\r\n        </a>\r\n    </li>\r\n    <li class=\"menu__item menu__item--social\" title=\"Link to Twitter profile\">\r\n        <a href=\"/\" class=\"icon icon--twitter\">\r\n            <svg width=\"20\" height=\"16\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M19.636 1.85c-.746.314-1.531.55-2.317.628A4.244 4.244 0 0 0 19.087.277c-.786.472-1.65.786-2.553.983C15.002-.352 12.45-.43 10.8 1.102a4.097 4.097 0 0 0-1.139 3.852C6.441 4.797 3.417 3.224 1.375.71A4.053 4.053 0 0 0 2.63 6.094c-.628 0-1.296-.196-1.846-.51a4.04 4.04 0 0 0 3.22 3.97 3.305 3.305 0 0 1-1.06.157L2.2 9.632a4.048 4.048 0 0 0 3.77 2.791 7.996 7.996 0 0 1-5.026 1.769H0A11.41 11.41 0 0 0 6.166 16c7.422 0 11.468-6.132 11.468-11.478v-.51c.785-.59 1.453-1.337 2.002-2.163z\"/></svg>\r\n        </a>\r\n    </li>\r\n</ul>"
+          },
+          "LayerMetadata": {
+            "Position": 1.0,
+            "Zone": "Menu",
+            "Layer": "Default",
+            "RenderTitle": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "Layers",
+      "Layers": [
+        {
+          "Name": "Default",
+          "Rule": "true",
+          "Description": "Displays widget on every page."
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "LayerSettings": {
+        "Zones": ["Logo", "Menu", "Footer"]
+      }
+    },
+    {
+      "name": "Themes",
+      "Site": "Moov2.OrchardCore.StudioTheme",
+      "Admin": "TheAdmin"
+    }
+  ]
+}

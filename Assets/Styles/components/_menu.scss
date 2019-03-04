@@ -1,0 +1,49 @@
+/* ==========================================================================
+   #MENU
+   ========================================================================== */
+
+/**
+ * Collection of links.
+ */
+
+.menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+    .menu__item {
+        @include rem(margin-right, $spacing-x-large);
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a {
+            text-decoration: none;
+            text-transform: uppercase;
+
+            @include themify($themes) {
+                color: themed('color.textDefault');
+                font-family: themed('fontFamily.impact');
+                font-size: themed('fontSize.small');
+
+                &:active,
+                &:hover {
+                    color: themed('color.primary');
+
+                    svg {
+                        fill: themed('color.primary');
+                    }
+                }
+            }
+        }
+    }
+
+    .menu__item--social {
+        @include rem(margin-right, $spacing-default);
+    }

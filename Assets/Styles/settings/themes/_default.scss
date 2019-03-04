@@ -1,0 +1,37 @@
+/* ==========================================================================
+   #DEFAULTTHEME
+   ========================================================================== */
+
+/**
+ * Default theme for the studio site.
+ */
+
+$themes: map-merge(
+    (
+        'default': (
+            'color': (
+                'primary': #f05825,
+                'black': #192027,
+                'navy': #293645,
+                'textDefault': #f9f9f9,
+            ),
+            'fontFamily': (
+                'copy': 'Roboto',
+                'impact': 'Josefin Sans'
+            ),
+            'fontSize': (
+                'small': 1.4rem,
+                'default': 1.6rem,
+                'defaultEM': 1.6em
+            ),
+            'header': (
+                'backgroundColor': #192027
+            ),
+            'icon': (
+                'backgroundColor': #293645,
+                'fill': #f9f9f9
+            )
+        )
+    ),
+    $themes
+);

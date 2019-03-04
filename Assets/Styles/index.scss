@@ -4,6 +4,8 @@
 
 @import "settings/all";
 
+@import "settings/themes/default";
+
 @import "tools/all";
 
 /**
@@ -14,3 +16,10 @@
 @import "../../node_modules/normalize.css/normalize.css";
 
 @import "generic/box-sizing";
+
+@import "base/body";
+@import "base/html";
+
+@import "components/header";
+@import "components/icon";
+@import "components/menu";

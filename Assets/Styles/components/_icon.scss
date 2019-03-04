@@ -1,0 +1,21 @@
+/* ==========================================================================
+   #ICON
+   ========================================================================== */
+
+.icon {
+    align-items: center;
+    display: flex;
+    @include rem(height, $icon-dimension);
+    justify-content: center;
+    @include rem(width, $icon-dimension);
+
+    @include rem(border-radius, $icon-dimension / 2);
+
+    @include themify($themes) {
+        background-color: themed('icon.backgroundColor');
+
+        svg {
+            fill: themed('icon.fill');
+        }
+    }
+}

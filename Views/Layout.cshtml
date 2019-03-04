@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="@Orchard.CultureName()">
+<html lang="@Orchard.CultureName()" class="theme-default">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,13 +11,23 @@
         <resources type="Stylesheet" />
         <resources type="HeadScript" />
 
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Roboto" rel="stylesheet">
         <link rel="stylesheet" href="/Moov2.OrchardCore.StudioTheme/css/style.css">
         <script src="/Moov2.OrchardCore.StudioTheme/js/bundle.js" async></script>
 
         @await RenderSectionAsync("Header", required: false)
     </head>
     <body>
-        @await RenderSectionAsync("Header", required: false)
+        <div class="header">
+            <div class="header__logo">
+                @await RenderSectionAsync("Logo", required: false)
+            </div>
+
+            <div class="header__nav">
+                @await RenderSectionAsync("Menu", required: false)
+            </div>
+        </div>
+
         @await RenderBodyAsync()
         @await RenderSectionAsync("Footer", required: false)
 
